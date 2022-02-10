@@ -1,0 +1,3 @@
+# AnimationTestCase
+
+![](animation.gif)
