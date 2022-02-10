@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/folder_layout"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <Constraint android:id="@+id/bluetooth_layout"
+            android:visibility="invisible"/>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@+id/folder_layout"
+            android:layout_width="250dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"/>
+        <Constraint android:id="@+id/bluetooth_layout"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginBottom="49dp"
+            android:background="@drawable/folder_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="invisible"/>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/bluetooth">
+        <Constraint android:id="@+id/folder_layout"
+            android:layout_width="250dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
+            android:visibility="invisible"/>
+
+        <Constraint android:id="@+id/bluetooth_layout"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginBottom="49dp"
+            android:background="@drawable/folder_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="visible"/>
+
+    </ConstraintSet>
+
+    <Transition
+        android:id="@+id/open_transition"
+        app:constraintSetStart="@+id/start"
+        app:constraintSetEnd="@+id/end"
+        app:duration="500"
+        app:motionInterpolator="anticipate">
+    </Transition>
+
+
+    <Transition app:constraintSetStart="@+id/start"
+        app:constraintSetEnd="@+id/end"
+        app:duration="500"
+        app:motionInterpolator="overshoot">
+    </Transition>
+
+    <Transition app:constraintSetStart="@+id/start"
+        app:constraintSetEnd="@+id/bluetooth"
+        app:duration="200"
+        app:motionInterpolator="linear">
+    </Transition>
+
+    <Transition app:constraintSetStart="@+id/end"
+        app:constraintSetEnd="@+id/bluetooth"
+        app:duration="200"
+        app:motionInterpolator="linear">
+    </Transition>
+
+    <Transition app:constraintSetStart="@+id/bluetooth"
+        app:constraintSetEnd="@+id/start"
+        app:duration="200"
+        app:motionInterpolator="linear">
+    </Transition>
+
+    <Transition app:constraintSetStart="@+id/bluetooth"
+        app:constraintSetEnd="@+id/end"
+        app:duration="200"
+        app:motionInterpolator="linear">
+    </Transition>
+
+
+
+</MotionScene>
